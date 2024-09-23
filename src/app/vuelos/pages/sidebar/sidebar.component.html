@@ -1,12 +1,12 @@
 
-<div class="container parrafo">
+<div class="container parrafo" *ngIf= "isSidebarVisible">
 <div class="card-body">
 <div class="offcanvas-header">
   <a class="navbar-brand" href="#">
     <img src="https://i.ibb.co/SsNCFpy/Captura-de-pantalla-21-9-2024-153944-looka-com.jpg" alt="Bootstrap" width="100" height="32"  class="rounded-pill">
   </a>
   <h5 class="offcanvas-title p-2" id="offcanvasWithBothOptionsLabel">Información del vuelo</h5>
-  <button type="button" class="btn btn-danger btn-outline-danger  text-light">X</button>
+  <button (click)="isSidebarVisible = !isSidebarVisible" type="button" class="btn btn-danger btn-outline-danger  text-light">X</button>
 </div>
 <hr>
 
