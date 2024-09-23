@@ -1,0 +1,13 @@
+.parrafo{
+  position: absolute;
+ width: 22rem;
+  height:100vh;
+  z-index: 100;
+  background-color: rgb(225, 242, 243);
+
+
+}
+.imagen{
+  width: 100%;
+}
+

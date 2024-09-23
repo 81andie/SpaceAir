@@ -1,0 +1,157 @@
+{
+  "states": [
+    { "isActive": true, "value": 1, "name": "Alabama" },
+    { "isActive": true, "value": 2, "name": "Alaska" },
+    { "isActive": true, "value": 3, "name": "Arizona" },
+    { "isActive": false, "value": 4, "name": "Arkansas" },
+    { "isActive": true, "value": 5, "name": "California" },
+    { "isActive": true, "value": 6, "name": "Colorado" },
+    { "isActive": false, "value": 7, "name": "Connecticut" },
+    { "isActive": true, "value": 8, "name": "Delaware" },
+    { "isActive": true, "value": 9, "name": "Florida" },
+    { "isActive": false, "value": 10, "name": "Georgia" },
+    { "isActive": true, "value": 11, "name": "Hawaii" },
+    { "isActive": true, "value": 12, "name": "Idaho" },
+    { "isActive": true, "value": 13, "name": "Illinois" },
+    { "isActive": false, "value": 14, "name": "Indiana" },
+    { "isActive": true, "value": 15, "name": "Iowa" },
+    { "isActive": true, "value": 16, "name": "Kansas" },
+    { "isActive": true, "value": 17, "name": "Kentucky" },
+    { "isActive": false, "value": 18, "name": "Louisiana" },
+    { "isActive": true, "value": 19, "name": "Maine" },
+    { "isActive": true, "value": 20, "name": "Maryland" },
+    { "isActive": true, "value": 21, "name": "Massachusetts" },
+    { "isActive": false, "value": 22, "name": "Michigan" },
+    { "isActive": true, "value": 23, "name": "Minnesota" },
+    { "isActive": true, "value": 24, "name": "Mississippi" },
+    { "isActive": true, "value": 25, "name": "Missouri" },
+    { "isActive": false, "value": 26, "name": "Montana" },
+    { "isActive": true, "value": 27, "name": "Nebraska" },
+    { "isActive": true, "value": 28, "name": "Nevada" },
+    { "isActive": true, "value": 29, "name": "New Hampshire" },
+    { "isActive": false, "value": 30, "name": "New Jersey" },
+    { "isActive": true, "value": 31, "name": "New Mexico" },
+    { "isActive": true, "value": 32, "name": "New York" },
+    { "isActive": false, "value": 33, "name": "North Carolina" },
+    { "isActive": true, "value": 34, "name": "North Dakota" },
+    { "isActive": true, "value": 35, "name": "Ohio" },
+    { "isActive": false, "value": 36, "name": "Oklahoma" },
+    { "isActive": true, "value": 37, "name": "Oregon" },
+    { "isActive": true, "value": 38, "name": "Pennsylvania" },
+    { "isActive": false, "value": 39, "name": "Rhode Island" },
+    { "isActive": true, "value": 40, "name": "South Carolina" },
+    { "isActive": true, "value": 41, "name": "South Dakota" },
+    { "isActive": false, "value": 42, "name": "Tennessee" },
+    { "isActive": true, "value": 43, "name": "Texas" },
+    { "isActive": true, "value": 44, "name": "Utah" },
+    { "isActive": false, "value": 45, "name": "Vermont" },
+    { "isActive": true, "value": 46, "name": "Virginia" },
+    { "isActive": true, "value": 47, "name": "Washington" },
+    { "isActive": false, "value": 48, "name": "West Virginia" },
+    { "isActive": true, "value": 49, "name": "Wisconsin" },
+    { "isActive": true, "value": 50, "name": "Wyoming" }
+  ],
+  "flights": [
+    {
+      "origin_country": "United States",
+      "callsign": "UAL820",
+      "time": 1628505600,
+      "latitude": 34.05,
+      "longitude": -118.25,
+      "speed": 300,
+      "heading": 90
+    },
+    {
+      "origin_country": "Canada",
+      "callsign": "AC123",
+      "time": 1628505601,
+      "latitude": 45.42,
+      "longitude": -75.69,
+      "speed": 280,
+      "heading": 270
+    },
+    {
+      "origin_country": "Mexico",
+      "callsign": "AM123",
+      "time": 1628505602,
+      "latitude": 19.43,
+      "longitude": -99.13,
+      "speed": 320,
+      "heading": 180
+    },
+    {
+      "origin_country": "United Kingdom",
+      "callsign": "BA456",
+      "time": 1628505603,
+      "latitude": 51.47,
+      "longitude": -0.45,
+      "speed": 350,
+      "heading": 60
+    },
+    {
+      "origin_country": "Australia",
+      "callsign": "QF789",
+      "time": 1628505604,
+      "latitude": -33.92,
+      "longitude": 151.21,
+      "speed": 300,
+      "heading": 150
+    },
+    {
+      "origin_country": "France",
+      "callsign": "AF456",
+      "time": 1628505605,
+      "latitude": 48.85,
+      "longitude": 2.35,
+      "speed": 310,
+      "heading": 120
+    },
+    {
+      "origin_country": "Germany",
+      "callsign": "LH123",
+      "time": 1628505606,
+      "latitude": 52.52,
+      "longitude": 13.41,
+      "speed": 330,
+      "heading": 240
+    },
+    {
+      "origin_country": "Japan",
+      "callsign": "JL789",
+      "time": 1628505607,
+      "latitude": 35.68,
+      "longitude": 139.76,
+      "speed": 290,
+      "heading": 300
+    },
+    {
+      "origin_country": "India",
+      "callsign": "AI789",
+      "time": 1628505608,
+      "latitude": 28.61,
+      "longitude": 77.23,
+      "speed": 340,
+      "heading": 90
+    },
+    {
+      "origin_country": "Brazil",
+      "callsign": "JJ456",
+      "time": 1628505609,
+      "latitude": -23.55,
+      "longitude": -46.63,
+      "speed": 250,
+      "heading": 180
+    },
+    {
+      "origin_country": "South Africa",
+      "callsign": "SA123",
+      "time": 1628505610,
+      "latitude": -26.20,
+      "longitude": 28.04,
+      "speed": 310,
+      "heading": 270
+    }
+
+
+  ]
+}
