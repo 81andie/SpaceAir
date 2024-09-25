@@ -16,6 +16,7 @@ import { Icon, Style } from 'ol/style';
 import { Point } from 'ol/geom';
 import { Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'vuelos-map',
   templateUrl: './map.component.html',
@@ -27,6 +28,8 @@ export class MapComponent implements AfterViewInit {
   map!: Map;
   flightLayer!: VectorLayer<VectorSource>;
   private flightSubscription!: Subscription;
+  public countries: string[] = [];
+
 
 
   constructor(private flightService: flightService) {}
@@ -35,6 +38,7 @@ export class MapComponent implements AfterViewInit {
     this.initMap();
     this.loadFlights();
     this.subscribeToFilteredFlights();
+
 
 }
 
@@ -73,8 +77,14 @@ initMap():void{
 loadFlights(): void {
  this.flightSubscription = this.flightService.getFlights().subscribe((flights: FlightData[]) => {
     this.updateFlightLayer(flights);
+    console.log(flights)
   });
 }
+
+
+
+
+
 
 
 subscribeToFilteredFlights(): void {
@@ -88,7 +98,9 @@ subscribeToFilteredFlights(): void {
 
 
 updateFlightLayer(flights: FlightData[]): void {
+  console.log(flights)
   const features = flights.map(flight => {
+
     const feature = new Feature({
       geometry: new Point(fromLonLat([flight.longitude, flight.latitude])),
     });
@@ -100,6 +112,8 @@ updateFlightLayer(flights: FlightData[]): void {
       }),
     }));
 
+    feature.set('flightData', flight);
+
     return feature;
   });
 
@@ -110,7 +124,18 @@ updateFlightLayer(flights: FlightData[]): void {
     source.addFeatures(features); // Agregar nuevas características
   }
 
+  this.map.on('singleclick', (event) => {
+    this.map.forEachFeatureAtPixel(event.pixel, (feature) => {
+      if (feature) {
+        const selectedFlight = feature.get('flightData'); // Obtener el vuelo desde la feature
+        this.flightService.selectFlight(selectedFlight); // Envía el vuelo seleccionado al servicio
+      }
+    });
+  });
+
 }
+
+
 
 ngOnDestroy(): void {
   if (this.flightSubscription) {

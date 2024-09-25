@@ -9,7 +9,10 @@ export class flightService {
 
   private apiUrl="https://opensky-network.org/api//states/all/";
   private filteredFlightsSubject = new BehaviorSubject<FlightData[]>([]);
-filteredFlights$ = this.filteredFlightsSubject.asObservable();
+ filteredFlights$ = this.filteredFlightsSubject.asObservable();
+
+ private selectedFlightSource = new BehaviorSubject<FlightData | null>(null);
+  selectedFlight$ = this.selectedFlightSource.asObservable();
 
 
   //private apiUrl="http://localhost:3000/states";
@@ -42,18 +45,16 @@ filteredFlights$ = this.filteredFlightsSubject.asObservable();
         heading: state[10]   // Dirección
       })))
     )
-
-
   }
 
 
   updateFilteredFlights(flights: FlightData[]) {
     this.filteredFlightsSubject.next(flights);
-
-
-
   }
 
 
+  selectFlight(flight: FlightData) {
+    this.selectedFlightSource.next(flight);
+  }
 
 }
