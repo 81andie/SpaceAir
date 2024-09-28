@@ -68,8 +68,6 @@ initMap():void{
 
   this.map.addLayer(this.flightLayer);
 
-
-
 }
 
 
@@ -129,6 +127,7 @@ updateFlightLayer(flights: FlightData[]): void {
       if (feature) {
         const selectedFlight = feature.get('flightData'); // Obtener el vuelo desde la feature
         this.flightService.selectFlight(selectedFlight); // Envía el vuelo seleccionado al servicio
+        console.log(selectedFlight);
       }
     });
   });
