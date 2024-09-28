@@ -1,6 +1,10 @@
-<div class="container parrafo" *ngIf="isSidebarVisible">
-  <div class="card-body">
+
+<div class="container parrafo p-2" *ngIf="isSidebarVisible">
+
+  <div class="card-body p-2">
+
     <div class="offcanvas-header">
+
       <a class="navbar-brand" href="#">
         <img src="https://i.ibb.co/SsNCFpy/Captura-de-pantalla-21-9-2024-153944-looka-com.jpg" alt="Bootstrap"
           width="100" height="32" class="rounded-pill">
@@ -9,7 +13,12 @@
       <button (click)="isSidebarVisible = !isSidebarVisible" type="button"
         class="btn btn-danger btn-outline-danger  text-light">X</button>
     </div>
+
+
     <hr>
+
+
+
 
     <img src="https://queretaro.quadratin.com.mx/www/wp-content/uploads/2023/08/f1280x720-20116_151791_7024.jpg"
       class="img-fluid card-image-center imagen p-1">
@@ -44,6 +53,15 @@
           <li class="list-group-item"><i class="fa-solid fa-clock"> 12236552</i> time</li>
 
         </ul>
+
+        <div class="p-2 w-100">
+          <h5>Buscar en Google</h5>
+          <div class="gcse-search"></div>
+
+        </div>
+
+       
+
       </div>
 
     </div>
