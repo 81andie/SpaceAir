@@ -5,8 +5,8 @@ import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import OSM, { ATTRIBUTION } from 'ol/source/OSM';
-import Attribution from 'ol/control/Attribution';
-import { defaults as defaultControls } from 'ol/control';
+
+
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
 import { flightService } from '../../services/flight.service';
@@ -15,6 +15,7 @@ import { FlightData } from '../../interfaces/states.interface';
 import { Icon, Style } from 'ol/style';
 import { Point } from 'ol/geom';
 import { Subscription } from 'rxjs';
+
 
 
 @Component({
@@ -51,6 +52,8 @@ initMap():void{
     layers: [
       new TileLayer({
         source: new OSM(),
+
+
       }),
     ],
 
@@ -78,10 +81,6 @@ loadFlights(): void {
     console.log(flights)
   });
 }
-
-
-
-
 
 
 
