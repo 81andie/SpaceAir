@@ -1,7 +1,7 @@
 .parrafo {
   position: absolute;
   width: 23rem;
-  height: 56vh;
+  height: 61vh;
   z-index: 100;
   background-color: rgba(251, 253, 253, 0.15);
   border: 1px solid rgba(9, 6, 6, 0.2); /* Borde semitransparente */
@@ -16,4 +16,34 @@
 .flecha {
   font-size: 2rem;
   font-weight: bolder;
+}
+
+@media (min-width:320px) {
+  .parrafo {
+    width:23.1rem;
+    height: 89vh;
+  }
+}
+
+
+@media (min-width:481px) {
+  .parrafo {
+    width:20rem;
+    height: 70vh;
+  }
+}
+
+
+@media(min-width: 641px) {
+  .parrafo {
+    width:24rem;
+    height: 67vh;
+  }
+}
+
+@media(min-width: 1025px) {
+  .parrafo {
+    width:24rem;
+    height: 71vh;
+  }
 }
