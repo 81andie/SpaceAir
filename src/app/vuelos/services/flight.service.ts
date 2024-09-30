@@ -37,12 +37,15 @@ export class flightService {
 
     return this.http.get<any>(this.apiUrl).pipe(
       map(data => data.states.map((state: any[]) => ({
+        icao: state[0],
         callsign: state[1],
         origin_country: state[2],
+        timePosition: state[3],
         latitude: state[6],  // Latitud
         longitude: state[5], // Longitud
         speed: state[9],     // Velocidad
-        heading: state[10]   // Dirección
+        heading: state[10],
+        category:state[17] // Dirección
       })))
     )
   }

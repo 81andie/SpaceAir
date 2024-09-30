@@ -1,9 +1,9 @@
 .map-container {
   position: absolute;
-  height: 120%;
   width: 100%;
   z-index: 0;
   overflow: hidden;
+  height: calc( 100% - 60.6px);
 }
 
 

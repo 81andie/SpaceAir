@@ -1,20 +1,19 @@
-.parrafo{
+.parrafo {
   position: absolute;
-  width: 24rem;
-  height:120%;
+  width: 23rem;
+  height: 80%;
   z-index: 100;
-  background-color: rgb(225, 242, 243);
-
+  background-color: rgba(251, 253, 253, 0.15);
+  border: 1px solid rgba(9, 6, 6, 0.2); /* Borde semitransparente */
+  backdrop-filter: blur(11px);
+  overflow-x: hidden;
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
 
 }
-.imagen{
-  width: 100%;
-}
 
-.flecha{
-  font-size: 2.5rem;
+
+.flecha {
+  font-size: 2rem;
   font-weight: bolder;
 }
-
-
-

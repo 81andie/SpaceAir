@@ -11,13 +11,15 @@ export interface States {
 }
 
 export interface FlightData {// Ej: "UAL820"
+  icao: number,
   origin_country: string;
   callsign: string
   time: number;
   latitude: number;
   longitude: number;
   speed: number, // Velocidad en nudos
-  heading: number
+  heading: number,
+
 }
 
 
