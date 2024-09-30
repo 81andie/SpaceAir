@@ -1,6 +1,10 @@
-.parrafo
-{
-  position: relative;
-  z-index: 100;
+.grad-inv {
+
+  background: rgb(1, 24, 32);
+  background: linear-gradient(177deg, rgb(66, 203, 249) 0%, rgba(4, 0, 27, 0.956) 100%);
+}
+
+.logo {
+  box-shadow: 2px 3px 4px white;
 }
 

@@ -9,7 +9,11 @@
   overflow-x: hidden;
   backdrop-filter: blur(15px);
   border-radius: 12px;
+  box-shadow: 2px 2px 4px rgba(172, 172, 172, 0.758);
 
+}
+.logo{
+  box-shadow: 2px 3px 4px rgb(111, 110, 110);
 }
 
 
