@@ -1,13 +1,14 @@
 .parrafo {
   position: absolute;
   width: 23rem;
-  height: 65vh;
+
 
   z-index: 100;
   background-color: rgba(251, 253, 253, 0.15);
   border: 1px solid rgba(9, 6, 6, 0.2); /* Borde semitransparente */
   backdrop-filter: blur(11px);
   overflow-x: hidden;
+  scroll-behavior: hidden;
   backdrop-filter: blur(15px);
   border-radius: 12px;
   box-shadow: 2px 2px 4px rgba(172, 172, 172, 0.758);
@@ -50,6 +51,6 @@
 @media(min-width: 1025px) {
   .parrafo {
     width:24rem;
-    
+
   }
 }
