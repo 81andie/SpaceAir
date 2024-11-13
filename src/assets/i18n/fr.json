@@ -1,0 +1,8 @@
+{
+  "flightInformation": "Informations sur le vol",
+  "origin": "Origine",
+  "speed": "Vitesse",
+  "latitude": "Latitude",
+  "longitude": "Longitude",
+  "otherData": "Autres données"
+}

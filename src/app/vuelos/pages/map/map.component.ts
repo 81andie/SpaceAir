@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import "ol/ol.css";
+
 import Feature from 'ol/Feature';
 import Map from 'ol/Map';
 import View from 'ol/View';

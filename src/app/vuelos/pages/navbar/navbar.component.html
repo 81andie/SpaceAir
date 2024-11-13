@@ -10,7 +10,7 @@
 
       <img src="https://i.ibb.co/SsNCFpy/Captura-de-pantalla-21-9-2024-153944-looka-com.jpg" alt="Bootstrap" width="130" height="34"  class="rounded-pill logo">
 
-    
+
     </a>
 
 
@@ -28,10 +28,15 @@
         </option>
       </select>
 
+
+      <select formControlName="language" class="form-select form-select-xs">
+        <option *ngFor="let lang of languages"[value]="lang">{{lang |uppercase}}</option>
+
+      </select>
+
     </form>
 
+
   </div>
-
-
 
   </nav>

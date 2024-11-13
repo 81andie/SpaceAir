@@ -1,8 +1,6 @@
 .parrafo {
   position: absolute;
   width: 23rem;
-
-
   z-index: 100;
   background-color: rgba(251, 253, 253, 0.15);
   border: 1px solid rgba(9, 6, 6, 0.2); /* Borde semitransparente */
