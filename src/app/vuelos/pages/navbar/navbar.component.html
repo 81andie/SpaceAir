@@ -24,12 +24,14 @@
       <select formControlName="state" class="form-select form-select-sm text-body-tertiary"  id="state" aria-label="Small select example">
         <option value="" disabled selected>Seleccione un estado</option>
         <option *ngFor="let country of countries" [value]="country" >
-          {{ country}} <!-- Asegúrate de que 'id' y 'name' sean las propiedades correctas -->
+        {{country}}
+
+
         </option>
       </select>
 
 
-      <select formControlName="language" class="form-select form-select-xs">
+      <select formControlName="language" class="form-select form-select-sm">
         <option *ngFor="let lang of languages"[value]="lang">{{lang |uppercase}}</option>
 
       </select>

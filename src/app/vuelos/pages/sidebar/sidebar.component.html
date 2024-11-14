@@ -9,7 +9,12 @@
         <img src="https://i.ibb.co/SsNCFpy/Captura-de-pantalla-21-9-2024-153944-looka-com.jpg" alt="Bootstrap"
           width="130" height="32" class="rounded-pill logo">
       </a>
-      <h5 class="offcanvas-title p-2 fs-6 text" id="offcanvasWithBothOptionsLabel">Información del vuelo</h5>
+      <ng-container *transloco="let t; lang: 'ca'">
+
+        <h5 class="offcanvas-title p-2 fs-6 text" id="offcanvasWithBothOptionsLabel">{{ t('flightInformation') }}</h5>
+      </ng-container>
+
+      <h5 class="offcanvas-title p-2 fs-6 text" id="offcanvasWithBothOptionsLabel"></h5>
       <button (click)="isSidebarVisible = !isSidebarVisible" type="button"
         class="btn btn-danger btn-outline-danger  text-light ">X</button>
     </div>

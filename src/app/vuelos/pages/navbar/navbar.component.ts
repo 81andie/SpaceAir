@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { flightService } from '../../services/flight.service';
 import { FlightData, StateData, States } from '../../interfaces/states.interface';
  import { TranslocoService } from '@jsverse/transloco';
+import { TranslocoLoaderService } from '../../services/translocoLoader.service';
 
 @Component({
   selector: 'vuelos-navbar',
@@ -34,14 +35,20 @@ export class NavbarComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private stateService: flightService,
-    private translocoService: TranslocoService
+    private translocoService: TranslocoService,
+    private translocoLoaderService: TranslocoLoaderService
   ) { }
 
   ngOnInit(): void {
     this.onloadStates();
     this.onStateChange();
     this.changeSelectTranslate();
+    this.loadTranslation(this.activeLang);
+    console.log('Idioma activo:', this.translocoService.getActiveLang());
+
   }
+
+
 
   onloadStates(): void {
     this.stateService.getStates().subscribe(
@@ -50,7 +57,7 @@ export class NavbarComponent implements OnInit {
         // Aquí accedemos directamente al array de estados
         this.countries = Array.from(new Set(data.states.map((state:any) =>state[2])))
        // console.log(this.countries)
-       this.translateCities()
+
       },
       (error)=>{
         console.error('error al obtener estados:', error)
@@ -58,12 +65,7 @@ export class NavbarComponent implements OnInit {
     );
   }
 
-  translateCities(): void {
-    this.countries.forEach(country => {
-      const translatedName = this.translocoService.translate('cities.' + country);
-      this.translatedCountries[country] = translatedName;
-    });
-  }
+
 
   onStateChange(): void {
     this.myForm.get('state')?.valueChanges.subscribe(selectedCountry => {
@@ -87,17 +89,29 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  changeSelectTranslate():void{
+
+  changeSelectTranslate(): void {
     this.myForm.get('language')?.valueChanges.subscribe(lang => {
       console.log('Idioma cambiado a:', lang);
-      this.translocoService.setActiveLang(lang);  // Cambia el idioma activo con Transloco
-      this.translateCities();
+      this.translocoService.setActiveLang(lang);
+      this.loadTranslation(lang);
     });
   }
 
   changeLanguage(lang: string): void {
-    this.translocoService.setActiveLang(lang);  // Cambia el idioma activo con Transloco
+    this.translocoService.setActiveLang(lang);
+    this.loadTranslation(lang);
   }
+
+  // Método para cargar la traducción
+  loadTranslation(lang: string): void {
+    this.translocoLoaderService.getTranslation(lang).subscribe(translations => {
+      // Cargar las traducciones
+      console.log('Traducciones cargadas:', translations);
+      // Aquí podrías actualizar alguna propiedad si necesitas manipular la traducción
+    });
+  }
+
 
 
 
