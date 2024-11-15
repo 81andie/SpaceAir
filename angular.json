@@ -31,13 +31,13 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "baseHref": "/SpaceAir/",
-            "assets": [   
+            "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
               "src/styles.css"
-
+    
             ],
             "scripts": []
           },
