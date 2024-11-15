@@ -52,7 +52,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
       }
 
       // Controlar la visibilidad del sidebar
-     this.isSidebarVisible = this.flightInformations.length > 0;
+    // this.isSidebarVisible = this.flightInformations.length > 0;
     });
 
 }

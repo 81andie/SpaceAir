@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { flightService } from '../../services/flight.service';
 import { FlightData, StateData, States } from '../../interfaces/states.interface';
+import { LanguageService } from '../../services/language.service';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class NavbarComponent implements OnInit {
   public myForm: FormGroup = this.fb.group({
 
     state: ['', Validators.required],
+    language: ['es'],
 
 
   })
@@ -32,6 +34,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private stateService: flightService,
+    private languageService:LanguageService
 
 
   ) { }
@@ -85,7 +88,10 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-
+  onLanguageChange() {
+    const selectedLanguage = this.myForm.get('language')?.value;
+    this.languageService.setLanguage(selectedLanguage);
+  }
 
 
 

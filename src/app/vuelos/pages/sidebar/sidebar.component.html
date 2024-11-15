@@ -1,4 +1,5 @@
 <div class="container parrafo pt-2 h-75 mt-2 mb-2" *ngIf="isSidebarVisible">
+
   <div class="card-body">
 
     <div class="offcanvas-header">
@@ -7,11 +8,7 @@
           width="130" height="32" class="rounded-pill logo">
       </a>
 
-
-        <h5 class="offcanvas-title p-2 fs-6 text" id="offcanvasWithBothOptionsLabel" transloco="flightInformation"></h5>
-  
-
-      <h5 class="offcanvas-title p-2 fs-6 text" id="offcanvasWithBothOptionsLabel"></h5>
+      <h5 class="offcanvas-title p-2 fs-6 text" id="offcanvasWithBothOptionsLabel">{{'flightInformation' | transloco}}</h5>
       <button (click)="isSidebarVisible = !isSidebarVisible" type="button"
         class="btn btn-danger btn-outline-danger  text-light ">X</button>
     </div>
@@ -25,7 +22,7 @@
 
       <div class="row" *ngFor="let flight of flightInformations">
         <div class="col">
-          <h6 class="text-bolder">Origen</h6>
+          <h6 class="text-bolder">{{"origin"| transloco}}</h6>
           <h5 class="bg-info p-1">{{flight.origin_country}}</h5>
         </div>
 
@@ -35,20 +32,19 @@
         </div>
 
         <div class="col">
-          <h6>Velocidad</h6>
-          <h4 class="bg-warning p-1">Speed</h4>
-          <h4 class="bg-info p-1">{{flight.speed}}</h4>
+          <h6>{{"speed"| transloco}}</h6>
+          <h4 class="bg-warning p-1">{{"speed"| transloco}}</h4>
+          <h4 class="bg-info p-1">{{flight.speed}} </h4>
         </div>
       </div>
 
       <div class="offcanvas-body mb-3">
-        <h5>Información de este vuelo</h5>
+        <h5>{{'flightInformation' | transloco}}</h5>
 
         <ul class="list-group" *ngFor="let flight of flightInformations">
 
-          <li class="list-group-item"><i class="fa-solid fa-globe">{{flight.latitude}}</i> latitud</li>
-
-          <li class="list-group-item"><i class="fa-solid fa-ruler"> {{flight.longitude}}</i> Longitud</li>
+          <li class="list-group-item"><i class="fa-solid fa-globe">{{flight.latitude}}</i> {{'latitude' | transloco}}</li>
+          <li class="list-group-item"><i class="fa-solid fa-ruler"> {{flight.longitude}}</i> {{'longitude' | transloco}}</li>
           <li class="list-group-item"><i class="fa-solid fa-fingerprint">{{flight.icao}}</i> ICAO</li>
 
         </ul>

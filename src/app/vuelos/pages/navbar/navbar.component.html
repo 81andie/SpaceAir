@@ -1,21 +1,14 @@
 
 <nav class="navbar d-flex flex-row grad-inv" >
 
-
   <div class= "d-flex container-fluid">
-
 
 
     <a class="navbar-brand" href="#">
 
       <img src="https://i.ibb.co/SsNCFpy/Captura-de-pantalla-21-9-2024-153944-looka-com.jpg" alt="Bootstrap" width="130" height="34"  class="rounded-pill logo">
 
-
     </a>
-
-
-
-
 
 
 
@@ -26,13 +19,19 @@
         <option *ngFor="let country of countries" [value]="country" >
         {{country}}
 
-
         </option>
       </select>
 
 
-      <select  class="form-select form-select-sm" >
-        <option >languages</option>
+      <select id="language" class="form-select form-select-sm" formControlName="language" (change)="onLanguageChange()" >
+
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="fr">francés</option>
+        <option value="ca">Catalá</option>
+        
+        <option value="zh">Chino</option>
+
       </select>
 
     </form>
