@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { flightService } from '../../services/flight.service';
 import { FlightData, StateData, States } from '../../interfaces/states.interface';
- import { TranslocoService } from '@jsverse/transloco';
-import { TranslocoLoaderService } from '../../services/translocoLoader.service';
+
 
 @Component({
   selector: 'vuelos-navbar',
@@ -19,15 +18,13 @@ export class NavbarComponent implements OnInit {
 
   public statesData: StateData[] = [];
   public countries: string[] = [];
-  activeLang: string = 'ca';
-  translatedCountries: any = {};
-  languages = ['ca', 'en', 'es', 'fr', 'de', 'ru', 'zh'];
+
 
   // Solo declara la variable aquí
   public myForm: FormGroup = this.fb.group({
 
     state: ['', Validators.required],
-    language: [this.activeLang]
+
 
   })
 
@@ -35,16 +32,15 @@ export class NavbarComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private stateService: flightService,
-    private translocoService: TranslocoService,
-    private translocoLoaderService: TranslocoLoaderService
+
+
   ) { }
 
   ngOnInit(): void {
     this.onloadStates();
     this.onStateChange();
-    this.changeSelectTranslate();
-    this.loadTranslation(this.activeLang);
-    console.log('Idioma activo:', this.translocoService.getActiveLang());
+
+
 
   }
 
@@ -90,27 +86,7 @@ export class NavbarComponent implements OnInit {
   }
 
 
-  changeSelectTranslate(): void {
-    this.myForm.get('language')?.valueChanges.subscribe(lang => {
-      console.log('Idioma cambiado a:', lang);
-      this.translocoService.setActiveLang(lang);
-      this.loadTranslation(lang);
-    });
-  }
 
-  changeLanguage(lang: string): void {
-    this.translocoService.setActiveLang(lang);
-    this.loadTranslation(lang);
-  }
-
-  // Método para cargar la traducción
-  loadTranslation(lang: string): void {
-    this.translocoLoaderService.getTranslation(lang).subscribe(translations => {
-      // Cargar las traducciones
-      console.log('Traducciones cargadas:', translations);
-      // Aquí podrías actualizar alguna propiedad si necesitas manipular la traducción
-    });
-  }
 
 
 

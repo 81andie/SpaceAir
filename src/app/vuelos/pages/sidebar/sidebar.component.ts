@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { flightService } from '../../services/flight.service';
 import { FlightData } from '../../interfaces/states.interface';
-import { TranslocoService } from '@jsverse/transloco';
+
 
 
 @Component({
@@ -10,25 +10,36 @@ import { TranslocoService } from '@jsverse/transloco';
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, OnDestroy {
 
   private flightInformationSubscription!: Subscription;
 
   public flightInformations: FlightData[] = [];
 
   public isSidebarVisible: boolean = true;
-  selectedLang: string = 'ca';
+
 
   constructor(
     private stateService: flightService,
-    private translocoService: TranslocoService,
+
+
   ) { }
 
 
   ngOnInit(): void {
     console.log('ngOnInit');
+
     this.informationFlights();
-    this.setActiveLang(this.selectedLang);
+    // Cargar las traducciones cuando el componente se inicialice
+
+  }
+
+  ngOnDestroy(): void {
+    // Asegúrate de desuscribirte cuando el componente se destruya
+    if (this.flightInformationSubscription) {
+      this.flightInformationSubscription.unsubscribe();
+    }
+
   }
 
 
@@ -45,15 +56,10 @@ export class SidebarComponent implements OnInit {
     });
 
 }
-setActiveLang(lang: string): void {
-  this.translocoService.setActiveLang(lang); // Cambia el idioma activo en Transloco
-  this.selectedLang = lang;  // Actualiza el idioma seleccionado en la variable
-}
 
-// Función para cambiar el idioma al seleccionar desde el selector
-onLanguageChange(event: any): void {
-  const lang = event.target.value;
-  this.setActiveLang(lang);
-}
+
+
+
+
 
 }

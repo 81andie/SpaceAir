@@ -1,46 +1,40 @@
-
 <div class="container parrafo pt-2 h-75 mt-2 mb-2" *ngIf="isSidebarVisible">
-
   <div class="card-body">
 
     <div class="offcanvas-header">
-
       <a class="navbar-brand p-1 mt-1 mb-2" href="#">
         <img src="https://i.ibb.co/SsNCFpy/Captura-de-pantalla-21-9-2024-153944-looka-com.jpg" alt="Bootstrap"
           width="130" height="32" class="rounded-pill logo">
       </a>
-      <ng-container *transloco="let t; lang: 'ca'">
 
-        <h5 class="offcanvas-title p-2 fs-6 text" id="offcanvasWithBothOptionsLabel">{{ t('flightInformation') }}</h5>
-      </ng-container>
+
+        <h5 class="offcanvas-title p-2 fs-6 text" id="offcanvasWithBothOptionsLabel" transloco="flightInformation"></h5>
+  
 
       <h5 class="offcanvas-title p-2 fs-6 text" id="offcanvasWithBothOptionsLabel"></h5>
       <button (click)="isSidebarVisible = !isSidebarVisible" type="button"
         class="btn btn-danger btn-outline-danger  text-light ">X</button>
     </div>
 
-
     <hr>
-
-
-
 
     <img src="https://queretaro.quadratin.com.mx/www/wp-content/uploads/2023/08/f1280x720-20116_151791_7024.jpg"
       class="img-fluid card-image-center imagen ">
 
     <div class="card-text text-center mt-2">
+
       <div class="row" *ngFor="let flight of flightInformations">
         <div class="col">
           <h6 class="text-bolder">Origen</h6>
           <h5 class="bg-info p-1">{{flight.origin_country}}</h5>
-
         </div>
 
         <div class="col">
           <p class="flecha">&rarr;</p>
           <p class="flecha">&rarr;</p>
         </div>
-        <div class="col" >
+
+        <div class="col">
           <h6>Velocidad</h6>
           <h4 class="bg-warning p-1">Speed</h4>
           <h4 class="bg-info p-1">{{flight.speed}}</h4>
