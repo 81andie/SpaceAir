@@ -12,10 +12,14 @@ import { TranslocoHttpLoader } from './transloco-loader';
       provideTransloco({
         config: {
           availableLangs: ['en', 'es','fr', 'ca',' ru','zh','ja'],
-          defaultLang: 'en',
+          defaultLang: 'ca',
+          fallbackLang: 'ca',
           // Remove this option if your application doesn't support changing language in runtime.
           reRenderOnLangChange: true,
           prodMode: !isDevMode(),
+          missingHandler: {
+            logMissingKey: true // Muestra un mensaje cuando faltan claves
+          }
         },
         loader: TranslocoHttpLoader
       }),
