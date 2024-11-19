@@ -16,7 +16,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   public flightInformations: FlightData[] = [];
 
-  public isSidebarVisible: boolean = true;
+  public isSidebarVisible: boolean = false;
 
 
   constructor(
