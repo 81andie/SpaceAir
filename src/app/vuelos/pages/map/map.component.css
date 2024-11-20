@@ -3,7 +3,13 @@
   width: 100%;
   z-index: 0;
   overflow: hidden;
-  height: calc( 100vh - 60.6px);
+  height: calc( 100vh - 115.34px);
+}
+
+@media (min-width:320px) {
+  .map_container{
+    height: calc( 100vh - 186.39px);
+  }
 }
 
 
