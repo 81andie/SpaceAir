@@ -8,6 +8,7 @@ import TileLayer from 'ol/layer/Tile';
 import OSM, { ATTRIBUTION } from 'ol/source/OSM';
 
 
+
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
 import { flightService } from '../../services/flight.service';
@@ -48,16 +49,18 @@ export class MapComponent implements AfterViewInit {
 
 
 initMap():void{
+
+
+
   this.map = new Map({
     target: 'map',
     layers: [
       new TileLayer({
         source: new OSM(),
-
-
       }),
     ],
 
+   
     view: new View({
       center:fromLonLat([0,0]),
       zoom: 2
