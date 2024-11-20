@@ -139,7 +139,7 @@ updateFlightLayer(flights: FlightData[]): void {
 
 ngOnDestroy(): void {
   if (this.flightSubscription) {
-    this.flightSubscription.unsubscribe(); // Desuscribirse para evitar fugas de memoria
+    this.flightSubscription.unsubscribe(); 
   }
 }
 
