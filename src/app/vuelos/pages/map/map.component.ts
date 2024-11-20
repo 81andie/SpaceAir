@@ -1,13 +1,11 @@
 import { Component, AfterViewInit } from '@angular/core';
 import "ol/ol.css";
 
-import Feature from 'ol/Feature';
-import Map from 'ol/Map';
+import {Feature} from 'ol';
+import Map from 'ol/Map.js';
 import View from 'ol/View';
-import TileLayer from 'ol/layer/Tile';
-import OSM, { ATTRIBUTION } from 'ol/source/OSM';
-
-
+import TileLayer from 'ol/layer/Tile.js';
+import OSM  from 'ol/source/OSM.js';
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
 import { flightService } from '../../services/flight.service';
