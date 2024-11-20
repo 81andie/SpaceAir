@@ -1,42 +1,34 @@
-
-<nav class="navbar d-flex flex-row grad-inv" >
-
-  <div class= "d-flex container-fluid">
-
-
+<nav class="navbar grad-inv py-3">
+  <!-- Contenedor principal con diseño responsivo -->
+  <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+    <!-- Logotipo -->
     <a class="navbar-brand" href="#">
-
-      <img src="https://i.ibb.co/SsNCFpy/Captura-de-pantalla-21-9-2024-153944-looka-com.jpg" alt="Bootstrap" width="130" height="34"  class="rounded-pill logo">
-
+      <img src="https://i.ibb.co/SsNCFpy/Captura-de-pantalla-21-9-2024-153944-looka-com.jpg"
+           alt="Bootstrap"
+           width="130"
+           height="34"
+           class="rounded-pill logo">
     </a>
 
-
-
-    <form [formGroup]= "myForm">
-
-      <select formControlName="state" class="form-select form-select-sm text-body-tertiary"  id="state" aria-label="Small select example">
+    <!-- Contenedor de los selects -->
+    <form [formGroup]="myForm" class="d-flex flex-column w-75 flex-md-row align-items-center gap-3 mt-3 mt-md-0">
+      <!-- Select de estado -->
+      <select formControlName="state" class="form-select form-select-sm" id="state" aria-label="Small select example">
         <option value="" disabled selected>Seleccione un estado</option>
-        <option *ngFor="let country of countries" [value]="country" >
-        {{country}}
-
+        <option *ngFor="let country of countries" [value]="country">
+          {{ country }}
         </option>
       </select>
 
-
-      <select id="language" class="form-select form-select-sm" formControlName="language" (change)="onLanguageChange()" >
-
+      <!-- Select de idioma -->
+      <select id="language" class="form-select form-select-sm" formControlName="language" (change)="onLanguageChange()">
         <option value="en">English</option>
         <option value="es">Español</option>
-        <option value="fr">francés</option>
+        <option value="fr">Francés</option>
         <option value="ca">Catalá</option>
-        
         <option value="zh">Chino</option>
-
       </select>
-
     </form>
-
-
   </div>
+</nav>
 
-  </nav>
