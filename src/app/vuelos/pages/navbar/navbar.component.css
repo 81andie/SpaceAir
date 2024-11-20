@@ -1,10 +1,29 @@
 .grad-inv {
 
   background: rgb(1, 24, 32);
-  background: linear-gradient(177deg, rgb(66, 203, 249) 0%, rgba(4, 0, 27, 0.956) 100%);
+  background: linear-gradient(177deg, rgb(250, 7, 7) 0%, rgba(248, 175, 136, 0.956) 100%);
+}
+
+.logodiv{
+  width: 200px;
+  height:50px;
 }
 
 .logo {
-  box-shadow: 2px 3px 4px white;
+  padding: 1px;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+  filter: drop-shadow( 2px, 4px red)
+}
+
+
+.text-logo{
+  font-size: 1.2rem;
+  margin-left: 2px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: -1px;
+  margin-top: 2px;
 }
 

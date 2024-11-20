@@ -1,27 +1,26 @@
-<nav class="navbar grad-inv py-3">
+<nav class="navbar grad-inv py-1">
 
 
   <!-- Contenedor principal con diseño responsivo -->
-  <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+  <div class="container d-flex flex-row flex-md-row align-items-center justify-content-between">
     <!-- Logotipo -->
 
-    <a class="navbar-brand" href="#">
+    <div class="d-flex align-items-center justify-content-between">
 
-      <img src="https://i.ibb.co/SsNCFpy/Captura-de-pantalla-21-9-2024-153944-looka-com.jpg"
-           alt="Bootstrap"
-           width="130"
-           height="34"
-           class="rounded-pill logo"
+        <iframe class="logo text-dark" src="https://lottie.host/embed/cb10017e-6798-40b2-80cc-48329373d4fc/QOKJqWS6KO.lottie"></iframe>
+        <p class="text-logo">SpaceAirTracker</p>
+
+    </div>
 
 
-           />
-    </a>
+
+    <p class="w-25 text-center p-text text-wrap p-1 text-light rounded-pill bg-warning mb-1">{{ today | date:'h:mm a z' }}</p>
 
     <!-- Contenedor de los selects -->
 
-    <form [formGroup]="myForm" class="d-flex flex-column w-75 flex-md-row align-items-center gap-3 mt-3 mt-md-0">
+    <form [formGroup]="myForm" class="d-flex flex-column w-100 flex-md-row  text-center align-items-center gap-2 mt-2 mb-2  mt-md-2">
       <!-- Select de estado -->
-      <p class="w-50 text-center fs-6 text-wrap p-1 text-light rounded-pill bg-info">{{ today | date:'h:mm a z' }}</p>
+
       <select formControlName="state" class="form-select form-select-sm" id="state" aria-label="Small select example">
         <option value="" disabled selected>Seleccione un estado</option>
         <option *ngFor="let country of countries" [value]="country">
