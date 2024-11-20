@@ -60,8 +60,8 @@ initMap():void{
 
 
     view: new View({
-      center:fromLonLat([0,0]),
-      zoom: 2
+      center:fromLonLat([2.816864,41.945651]),
+      zoom: 4
     }),
 
   });
@@ -139,7 +139,7 @@ updateFlightLayer(flights: FlightData[]): void {
 
 ngOnDestroy(): void {
   if (this.flightSubscription) {
-    this.flightSubscription.unsubscribe(); 
+    this.flightSubscription.unsubscribe();
   }
 }
 

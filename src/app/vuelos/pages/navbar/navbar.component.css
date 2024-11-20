@@ -4,10 +4,7 @@
   background: linear-gradient(177deg, rgb(250, 7, 7) 0%, rgba(248, 175, 136, 0.956) 100%);
 }
 
-.logodiv{
-  width: 200px;
-  height:50px;
-}
+
 
 .logo {
   padding: 1px;
@@ -17,9 +14,12 @@
   filter: drop-shadow( 2px, 4px red)
 }
 
+.text-center{
+  font-size: 0.6rem;
+}
 
 .text-logo{
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   margin-left: 2px;
   font-weight: bold;
   color: white;
