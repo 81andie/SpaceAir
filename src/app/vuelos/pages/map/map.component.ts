@@ -106,7 +106,7 @@ updateFlightLayer(flights: FlightData[]): void {
 
     feature.setStyle(new Style({
       image: new Icon({
-        src: 'https://i.ibb.co/YWrftTp/air.png', // Cambia la ruta a tu ícono de avión
+        src: 'assets/avionrojo.png',
         scale: 0.05,
       }),
     }));
