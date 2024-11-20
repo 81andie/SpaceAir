@@ -6,6 +6,7 @@ import Map from 'ol/Map.js';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile.js';
 import OSM  from 'ol/source/OSM.js';
+
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
 import { flightService } from '../../services/flight.service';
@@ -46,15 +47,17 @@ export class MapComponent implements AfterViewInit {
 
 
 initMap():void{
+
+
+
   this.map = new Map({
     target: 'map',
     layers: [
       new TileLayer({
         source: new OSM(),
-
-
       }),
     ],
+
 
     view: new View({
       center:fromLonLat([0,0]),
@@ -66,7 +69,6 @@ initMap():void{
 
   this.flightLayer = new VectorLayer({
     source: new VectorSource(),
-    
   });
 
   this.map.addLayer(this.flightLayer);
