@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
 
   public statesData: StateData[] = [];
   public countries: string[] = [];
+  today: number = Date.now();
 
 
   // Solo declara la variable aquí
