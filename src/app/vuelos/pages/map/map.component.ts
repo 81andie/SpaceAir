@@ -66,6 +66,7 @@ initMap():void{
 
   this.flightLayer = new VectorLayer({
     source: new VectorSource(),
+    
   });
 
   this.map.addLayer(this.flightLayer);
