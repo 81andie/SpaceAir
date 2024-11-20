@@ -3,7 +3,7 @@
   width: 100%;
   z-index: 0;
   overflow: hidden;
-  height: calc( 100% - 60.6px);
+  height: calc( 100vh - 60.6px);
 }
 
 
