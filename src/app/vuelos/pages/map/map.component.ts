@@ -103,7 +103,7 @@ updateFlightLayer(flights: FlightData[]): void {
     const feature = new Feature({
       geometry: new Point(fromLonLat([flight.longitude, flight.latitude])),
     });
-
+ 
     feature.setStyle(new Style({
       image: new Icon({
         src: 'assets/avionrojo.png',
