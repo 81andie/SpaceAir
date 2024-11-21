@@ -107,7 +107,7 @@ updateFlightLayer(flights: FlightData[]): void {
     feature.setStyle(new Style({
       image: new Icon({
         src: 'assets/avionrojo.png',
-        scale: 0.2,
+        scale: 0.2
       }),
     }));
 
