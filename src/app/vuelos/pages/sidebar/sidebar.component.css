@@ -13,8 +13,12 @@
   box-shadow: 2px 2px 4px rgba(172, 172, 172, 0.758);
 
 }
-.logo{
-  box-shadow: 2px 3px 4px rgb(111, 110, 110);
+.logo {
+  padding: 1px;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+  filter: drop-shadow( 2px, 4px red)
 }
 
 
