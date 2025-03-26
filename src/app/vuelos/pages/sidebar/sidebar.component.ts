@@ -50,16 +50,17 @@ export class SidebarComponent implements OnInit, OnDestroy {
       if (information) {
         this.flightInformations = [information];  // Convertir un solo objeto en array
         this.toManyRequests = "";
+        this.isSidebarVisible = this.flightInformations.length > 0;
 
       } else {
         this.flightInformations = [];  // Si no hay información, asignamos un array vacío
         this.toManyRequests = "Espere 24 horas para ver resultados, restricción llamadas Api";
-
+        this.isSidebarVisible = this.flightInformations.length === 0;
       }
 
       // Controlar la visibilidad del sidebar
 
-      this.isSidebarVisible = this.flightInformations.length > 0 || this.toManyRequests !== "";
+
 
 
     });
