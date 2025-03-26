@@ -21,9 +21,14 @@
 
     <div class="card-text text-center mt-2">
 
+      <div *ngIf="toManyRequests" class="alert alert-danger" role="alert">
+        {{ toManyRequests }}
+      </div>
+
       <div class="row" *ngFor="let flight of flightInformations">
         <div class="col">
           <h6 class="text-bolder">Numero de Vuelo</h6>
+
           <h5 class="bg-info p-1">{{flight.callsign}}</h5>
         </div>
 
