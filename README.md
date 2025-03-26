@@ -1,5 +1,7 @@
 # SpaceAir
 
+ATENCIÓN a dia de hoy 26/03/2025 al mejorar diversas partes del diseño de la página, se ha superado las solicitudes a la API, que es muy restrictiva. Hasta dentro de 24 horas, mañana podréis ver de nuevo los datos de la API.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.9.
 
 ## Development server
