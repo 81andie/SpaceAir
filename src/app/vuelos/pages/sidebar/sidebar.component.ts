@@ -49,16 +49,16 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.flightInformationSubscription = this.stateService.selectedFlight$.subscribe((information: FlightData | null) => {
       if (information) {
         this.flightInformations = [information];  // Convertir un solo objeto en array
-        this.toManyRequests = "";
+        this.toManyRequests="";
         this.isSidebarVisible = this.flightInformations.length > 0;
 
       } else {
         this.flightInformations = [];  // Si no hay información, asignamos un array vacío
-        this.toManyRequests = "Espere 24 horas para ver resultados, restricción llamadas Api";
+        this.toManyRequests = "Alerta en el momento que en el mapa no salgan datos,(icono avión no visible) esperar 24 horas para ver resultados, esta app utiliza una api-gratuita con datos muy restrictivos";
         this.isSidebarVisible = this.flightInformations.length === 0;
       }
 
-      // Controlar la visibilidad del sidebar
+      // Controlar la visibilidad del sidebart
 
 
 
