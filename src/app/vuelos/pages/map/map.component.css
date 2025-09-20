@@ -2,8 +2,9 @@
   position: absolute;
   width: 100%;
   z-index: 0;
+ 
   overflow: hidden;
-  height: calc( 100vh - 80.34px);
+ height: calc(100vh)
 }
 
 @media (min-width:320px) {

@@ -1,4 +1,4 @@
-<div class="container parrafo pt-2  mt-2 mb-2 " *ngIf="isSidebarVisible">
+<div class="container parrafo pt-2  mt-1 mb-1 " *ngIf="isSidebarVisible">
 
   <div class="card-body h-25">
 
@@ -17,7 +17,7 @@
     <hr>
 
     <img src="https://queretaro.quadratin.com.mx/www/wp-content/uploads/2023/08/f1280x720-20116_151791_7024.jpg"
-      class="img-fluid ">
+      class="img-fluid">
 
     <div class="card-text text-center">
 
@@ -49,9 +49,9 @@
 
         <ul class="list-group" *ngFor="let flight of flightInformations">
 
-          <li class="list-group-item"><i class="fa-solid fa-globe">{{flight.latitude}}</i> {{'latitude' | transloco}}</li>
+          <li class="list-group-item"><i class="fa-solid fa-globe"> {{flight.latitude}}</i> {{'latitude' | transloco}}</li>
           <li class="list-group-item"><i class="fa-solid fa-ruler"> {{flight.longitude}}</i> {{'longitude' | transloco}}</li>
-          <li class="list-group-item"><i class="fa-solid fa-fingerprint">{{flight.icao}}</i> ICAO</li>
+          <li class="list-group-item"><i class="fa-solid fa-fingerprint"> {{flight.icao}}</i> ICAO</li>
 
         </ul>
 
