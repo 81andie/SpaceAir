@@ -1,3 +1,4 @@
+
 let cacheStore = {
   data: null,
   time: 0
@@ -46,9 +47,9 @@ export const handler = async () => {
       return {
         statusCode: 200,
         headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'X-Cache': 'HIT'
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "X-Cache": "HIT"
         },
         body: JSON.stringify(cacheStore.data)
       };
@@ -57,23 +58,47 @@ export const handler = async () => {
     console.log("🌍 Fetching OpenSky API...");
 
     const res = await fetchWithRetry(
-      'https://opensky-network.org/api/states/all',
+      "https://opensky-network.org/api/states/all",
       {
         headers: {
-          'User-Agent': 'Mozilla/5.0'
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+          "Accept": "application/json",
+          "Accept-Encoding": "gzip, deflate, br",
+          "Connection": "keep-alive"
         }
       }
     );
 
-    console.log("📡 Response status:", res.status);
+    console.log("📡 OpenSky Status:", res.status);
 
-    const data = await res.json();
+    let data;
 
-    console.log("📦 Data received (preview):");
+    try {
+      data = await res.json();
+    } catch (err) {
+      console.log("❌ JSON parse error:", err);
+      data = null;
+    }
+
+    console.log("📦 Raw response preview:");
     console.log(JSON.stringify(data)?.slice(0, 300));
 
-    if (!data || !data.states) {
-      console.log("⚠️ WARNING: invalid or empty data from API");
+    if (!data || !Array.isArray(data.states)) {
+      console.log("⚠️ Invalid OpenSky response structure:", data);
+
+      return {
+        statusCode: 200,
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "X-Error": "invalid-data"
+        },
+        body: JSON.stringify({
+          states: [],
+          error: true,
+          message: "Invalid response from OpenSky"
+        })
+      };
     }
 
     // 🔥 SAVE CACHE
@@ -85,30 +110,31 @@ export const handler = async () => {
     return {
       statusCode: 200,
       headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'X-Cache': 'MISS',
-        'Cache-Control': 'no-store'
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "X-Cache": "MISS",
+        "Cache-Control": "no-store"
       },
       body: JSON.stringify(data)
     };
 
   } catch (error) {
-    console.log("❌ ERROR in function:");
+    console.log("❌ FUNCTION ERROR:");
     console.error(error);
 
     return {
       statusCode: 200,
       headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'X-Fallback': 'true'
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "X-Fallback": "true"
       },
       body: JSON.stringify({
         states: [],
         error: true,
-        message: 'Temporary fallback response'
+        message: "Temporary fallback response"
       })
     };
   }
 };
+
