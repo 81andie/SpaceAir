@@ -1,12 +1,47 @@
+let cacheStore = {
+  data: null,
+  time: 0
+};
+
+const CACHE_DURATION = 30 * 1000; // 30s
+
+const fetchWithRetry = async (url, options, retries = 2) => {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
+
+  try {
+    const res = await fetch(url, {
+      ...options,
+      signal: controller.signal
+    });
+
+    clearTimeout(timeout);
+
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    return res;
+
+  } catch (err) {
+    clearTimeout(timeout);
+
+    if (retries > 0) {
+      return fetchWithRetry(url, options, retries - 1);
+    }
+
+    throw err;
+  }
+};
+
 export const handler = async () => {
   try {
     const now = Date.now();
+
     console.log("🚀 Function states called");
     console.log("⏱️ Timestamp:", now);
 
-    // 🔥 CACHE
-    if (cache && now - cacheTime < CACHE_DURATION) {
-      console.log("⚡ Returning CACHE HIT");
+    // 🔥 CACHE HIT
+    if (cacheStore.data && now - cacheStore.time < CACHE_DURATION) {
+      console.log("⚡ CACHE HIT");
 
       return {
         statusCode: 200,
@@ -15,7 +50,7 @@ export const handler = async () => {
           'Access-Control-Allow-Origin': '*',
           'X-Cache': 'HIT'
         },
-        body: JSON.stringify(cache)
+        body: JSON.stringify(cacheStore.data)
       };
     }
 
@@ -34,15 +69,16 @@ export const handler = async () => {
 
     const data = await res.json();
 
-    console.log("📦 Raw data received:");
+    console.log("📦 Data received (preview):");
     console.log(JSON.stringify(data)?.slice(0, 300));
 
     if (!data || !data.states) {
-      console.log("⚠️ WARNING: data.states is empty or undefined");
+      console.log("⚠️ WARNING: invalid or empty data from API");
     }
 
-    cache = data;
-    cacheTime = now;
+    // 🔥 SAVE CACHE
+    cacheStore.data = data;
+    cacheStore.time = now;
 
     console.log("💾 Cache updated");
 
