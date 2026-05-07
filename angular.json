@@ -23,10 +23,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": {
-              "base": "docs",
-              "browser": ""
-            },
+            "outputPath": "dist/space-air",
+
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -71,9 +69,7 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "proxyConfig": "proxy.conf.json"
-          },
+         
           "configurations": {
             "production": {
               "buildTarget": "SpaceAir:build:production"

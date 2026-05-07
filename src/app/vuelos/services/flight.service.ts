@@ -7,7 +7,7 @@ import { FlightData, States } from '../interfaces/states.interface';
 
 export class flightService {
 
-  private apiUrl="/api/states/all";
+  private apiUrl="/api/states";
   private filteredFlightsSubject = new BehaviorSubject<FlightData[]>([]);
  filteredFlights$ = this.filteredFlightsSubject.asObservable();
 

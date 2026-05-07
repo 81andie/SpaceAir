@@ -1,9 +1,0 @@
-{
-  "/api": {
-    "target": "https://opensky-network.org",
-    "secure": false,
-    "changeOrigin": true,
-    "logLevel": "debug"
-
-  }
-}
