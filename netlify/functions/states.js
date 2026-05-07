@@ -4,34 +4,7 @@ let cacheStore = {
   time: 0
 };
 
-const CACHE_DURATION = 30 * 1000; // 30s
-
-const fetchWithRetry = async (url, options, retries = 2) => {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 25000);
-
-  try {
-    const res = await fetch(url, {
-      ...options,
-      signal: controller.signal
-    });
-
-    clearTimeout(timeout);
-
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-    return res;
-
-  } catch (err) {
-    clearTimeout(timeout);
-
-    if (retries > 0) {
-      return fetchWithRetry(url, options, retries - 1);
-    }
-
-    throw err;
-  }
-};
+const CACHE_DURATION = 30 * 1000;
 
 export const handler = async () => {
   try {
@@ -40,7 +13,7 @@ export const handler = async () => {
     console.log("🚀 Function states called");
     console.log("⏱️ Timestamp:", now);
 
-    // 🔥 CACHE HIT
+    // 🔥 CACHE
     if (cacheStore.data && now - cacheStore.time < CACHE_DURATION) {
       console.log("⚡ CACHE HIT");
 
@@ -57,34 +30,27 @@ export const handler = async () => {
 
     console.log("🌍 Fetching OpenSky API...");
 
-    const res = await fetchWithRetry(
+    const token = process.env.OpenUser;
+
+    const res = await fetch(
       "https://opensky-network.org/api/states/all",
       {
         headers: {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+          "Authorization": `Bearer ${token}`,
           "Accept": "application/json",
-          "Accept-Encoding": "gzip, deflate, br",
-          "Connection": "keep-alive"
+          "User-Agent": "Mozilla/5.0"
         }
       }
     );
 
     console.log("📡 OpenSky Status:", res.status);
 
-    let data;
+    const data = await res.json();
 
-    try {
-      data = await res.json();
-    } catch (err) {
-      console.log("❌ JSON parse error:", err);
-      data = null;
-    }
-
-    console.log("📦 Raw response preview:");
-    console.log(JSON.stringify(data)?.slice(0, 300));
+    console.log("📦 Data received:", JSON.stringify(data)?.slice(0, 300));
 
     if (!data || !Array.isArray(data.states)) {
-      console.log("⚠️ Invalid OpenSky response structure:", data);
+      console.log("⚠️ Invalid response from OpenSky");
 
       return {
         statusCode: 200,
@@ -105,15 +71,12 @@ export const handler = async () => {
     cacheStore.data = data;
     cacheStore.time = now;
 
-    console.log("💾 Cache updated");
-
     return {
       statusCode: 200,
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
-        "X-Cache": "MISS",
-        "Cache-Control": "no-store"
+        "X-Cache": "MISS"
       },
       body: JSON.stringify(data)
     };
@@ -137,4 +100,3 @@ export const handler = async () => {
     };
   }
 };
-
