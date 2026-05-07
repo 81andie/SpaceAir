@@ -39,9 +39,11 @@
             ],
             "styles": [
               "src/styles.css",
-               "./node_modules/ol/ol.css"
+              "./node_modules/ol/ol.css"
             ],
-            "scripts": ["./node_modules/ol/dist/ol.js"]
+            "scripts": [
+              "./node_modules/ol/dist/ol.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -69,6 +71,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "buildTarget": "SpaceAir:build:production"

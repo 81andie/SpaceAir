@@ -1,19 +1,22 @@
 .parrafo {
   position: absolute;
+  scrollbar-width:auto;
   width: 23rem;
+  top: 0;
   z-index: 100;
   background-color: rgba(251, 253, 253, 0.15);
   border: 1px solid rgba(9, 6, 6, 0.2); /* Borde semitransparente */
   backdrop-filter: blur(11px);
-  overflow-x: hidden;
-  scroll-behavior: hidden;
-  backdrop-filter: blur(15px);
   border-radius: 12px;
   box-shadow: 2px 2px 4px rgba(172, 172, 172, 0.758);
 
 }
-.logo{
-  box-shadow: 2px 3px 4px rgb(111, 110, 110);
+.logo {
+  padding: 1px;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+  filter: drop-shadow( 2px, 4px red)
 }
 
 
