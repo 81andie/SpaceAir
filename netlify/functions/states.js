@@ -1,41 +1,13 @@
-let cache = null;
-let cacheTime = 0;
-
-const CACHE_DURATION = 30 * 1000; // 30s
-
-const fetchWithRetry = async (url, options, retries = 2) => {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 8000);
-
-  try {
-    const res = await fetch(url, {
-      ...options,
-      signal: controller.signal
-    });
-
-    clearTimeout(timeout);
-
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-    return res;
-
-  } catch (err) {
-    clearTimeout(timeout);
-
-    if (retries > 0) {
-      return fetchWithRetry(url, options, retries - 1);
-    }
-
-    throw err;
-  }
-};
-
 export const handler = async () => {
   try {
     const now = Date.now();
+    console.log("🚀 Function states called");
+    console.log("⏱️ Timestamp:", now);
 
     // 🔥 CACHE
     if (cache && now - cacheTime < CACHE_DURATION) {
+      console.log("⚡ Returning CACHE HIT");
+
       return {
         statusCode: 200,
         headers: {
@@ -47,6 +19,8 @@ export const handler = async () => {
       };
     }
 
+    console.log("🌍 Fetching OpenSky API...");
+
     const res = await fetchWithRetry(
       'https://opensky-network.org/api/states/all',
       {
@@ -56,11 +30,21 @@ export const handler = async () => {
       }
     );
 
+    console.log("📡 Response status:", res.status);
+
     const data = await res.json();
 
-    // 🔥 guardamos cache
+    console.log("📦 Raw data received:");
+    console.log(JSON.stringify(data)?.slice(0, 300));
+
+    if (!data || !data.states) {
+      console.log("⚠️ WARNING: data.states is empty or undefined");
+    }
+
     cache = data;
     cacheTime = now;
+
+    console.log("💾 Cache updated");
 
     return {
       statusCode: 200,
@@ -74,9 +58,9 @@ export const handler = async () => {
     };
 
   } catch (error) {
-    console.error('States function error:', error);
+    console.log("❌ ERROR in function:");
+    console.error(error);
 
-    // 🔥 fallback seguro (evita romper Angular)
     return {
       statusCode: 200,
       headers: {
