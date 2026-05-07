@@ -8,7 +8,7 @@ const CACHE_DURATION = 30 * 1000; // 30s
 
 const fetchWithRetry = async (url, options, retries = 2) => {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 8000);
+  const timeout = setTimeout(() => controller.abort(), 25000);
 
   try {
     const res = await fetch(url, {
